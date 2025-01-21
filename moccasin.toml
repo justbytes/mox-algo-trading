@@ -1,0 +1,24 @@
+[project]
+src = "src"
+out = "out"
+dot_env = ".env"
+save_abi_path = "abis"
+default_network_name = "mainnet-fork"
+
+[networks.contracts]
+weth = { abi = "abis/weth.json" }
+usdc = { abi = "abis/usdc.json" }
+
+[networks.mainnet-fork]
+fork = true
+url = "$MAINNET_RPC_URL"
+default_account_name = "anvil0"
+unsafe_password_file = "$UNSAFE_PASSWORD_FILE"
+
+[networks.mainnet-fork.contracts]
+weth = { address = "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2" }
+usdc = { address = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48" }
+
+
+
+# You can view all configuration options at https://cyfrin.github.io/moccasin/all_moccasin_toml_parameters.html
