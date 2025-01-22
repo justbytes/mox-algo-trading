@@ -24,6 +24,8 @@ def run_deposit_script(usdc, weth):
     )
     pool_address: str = aavev3_pool_address_provider.getPool()
     pool_contract = active_network.manifest_named("pool", address=pool_address)
+    
+    
     # Deposit all USDC
     usdc_balance = usdc.balanceOf(boa.env.eoa)
     if usdc_balance > 0:
@@ -49,8 +51,5 @@ def run_deposit_script(usdc, weth):
         ltv: {ltv}
         healthFactor: {healthFactor}
           """)
+    
 
-
-def moccasin_main():
-    usdc, weth, _, _ = setup_script()
-    run_deposit_script(usdc, weth)
